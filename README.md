@@ -40,6 +40,10 @@ npm start
 npm test
 ```
 
+Wait until the test finished and you will see the passed and failed of the result
+
+![test result](/doc/test_result.png)
+
 ## 4. REST API
 
 ### Create a new band
