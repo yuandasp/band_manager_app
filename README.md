@@ -1,42 +1,46 @@
 # band_manager_app
 
-## Project Setup
+## 1. Project Setup
 
 To set up your development environment, follow these steps:
 
-### 1. Clone the repository to your local machine using Git:
+### Clone the repository to your local machine using Git:
 
 ```
 https://github.com/yuandasp/band_manager_app.git
 ```
 
-### 2. Install project dependencies using npm:
+### Install project dependencies using npm:
 
 ```
 npm install
 ```
 
-### 3. Fill the .env file using the given template on .env.template
+### Rename .env.template to .env
 
-### 4. Import or create new schema for database on MySQL
+Fill the .env file
+
+### Import or create new schema for database on MySQL
 
 You need to create two schemes of database, for testing (db_band_manager_test) and for storing the real data (db_band_manager)
 
-//image
+Each of the schema must have these tables:
 
-## Running the code
+![database schema](/doc/database.png)
+
+## 2. Running the code
 
 ```
 npm start
 ```
 
-## Running the test
+## 3. Running the test
 
 ```
 npm test
 ```
 
-## REST API
+## 4. REST API
 
 ### Create a new band
 
