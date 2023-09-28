@@ -5,6 +5,10 @@ module.exports = {
     try {
       const getAllBands = await query(`SELECT * FROM bands;`);
 
+      if (getAllBands.length === 0) {
+        return res.status(200).send({ message: "No data", data: getAllBands });
+      }
+
       return res
         .status(200)
         .send({ message: "Success get all bands!", data: getAllBands });
@@ -72,6 +76,20 @@ module.exports = {
     try {
       const { name, max_personnel } = req.body;
       const { band_id } = req.params;
+
+      const isBandExist = await query(
+        `SELECT * FROM bands WHERE band_id=${band_id}`
+      );
+      if (isBandExist.length === 0) {
+        return res.status(400).send({ message: "No band is found!" });
+      }
+
+      const isBandNameAlreadyExist = await query(
+        `SELECT * FROM bands WHERE name=${db.escape(name)};`
+      );
+      if (isBandNameAlreadyExist.length > 0) {
+        return res.status(400).send({ message: "Band name already exist!" });
+      }
 
       let updateBandInfoQuery = "UPDATE bands SET";
 
